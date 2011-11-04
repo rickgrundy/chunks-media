@@ -1,9 +1,9 @@
 $ ->
-  mediapack.initChunk $(chunk) for chunk in $(".chunk")
+  media.initChunk $(chunk) for chunk in $(".chunk")
 
-mediapack =
+media =
   initChunk: (chunk) ->
-    mediapack.fileReplacement $(replaceLink) for replaceLink in chunk.find("a.replace_file")
+    media.fileReplacement $(replaceLink) for replaceLink in chunk.find("a.replace_file")
   
   fileReplacement: (replaceLink) ->
     field = replaceLink.parents(".field")
