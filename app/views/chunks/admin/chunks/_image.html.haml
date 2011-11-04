@@ -2,6 +2,15 @@
   =f.label :title
   =f.text_field :title
   
+.field
+  =f.label :size
+  =f.text_field :size
+  
 .field.req
-  =f.label :file
-  =f.file_field :file
+  =f.label :image
+  -if chunk.image_file_name
+    .fixed=chunk.image_file_name
+    =f.file_field :image, hidden: true
+    =replace_file_link
+  -else
+    =f.file_field :image

@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "chunks"
+  s.add_dependency "paperclip"
   
   s.add_development_dependency "rails"
   s.add_development_dependency "sqlite3"
