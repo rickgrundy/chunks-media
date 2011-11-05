@@ -1,15 +1,27 @@
+.thumbnail
+  =image_tag chunk.image.url(:admin_thumbnail) if chunk.image.exists?
+
 .field
   =f.label :title
   =f.text_field :title
   
 .field.req
   =f.label :image
-  -if chunk.image_file_name
+  -if chunk.image.exists?
     .fixed=chunk.image_file_name
     =f.file_field :image, style: "display: none;"
     =replace_file_link
   -else
     =f.file_field :image
+  
+-if chunk.image.exists?  
+  .field
+    =f.label :file_type
+    .fixed=chunk.image_content_type
+
+  .field
+    =f.label :file_size
+    .fixed=number_to_human_size(chunk.image_file_size)
     
 .help
   S3 KEY:

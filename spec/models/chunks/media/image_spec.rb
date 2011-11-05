@@ -9,4 +9,11 @@ describe Chunks::Media::Image do
       chunk.should be_valid
     end
   end
+  
+  it "is only previewable after an image has been uploaded" do
+    chunk = Factory.build(:image, image_file_name: nil)
+    chunk.should_not be_previewable
+    chunk.image_file_name = "/some/file.png"
+    chunk.should be_previewable
+  end
 end
