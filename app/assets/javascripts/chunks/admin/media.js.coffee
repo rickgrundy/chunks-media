@@ -1,5 +1,4 @@
-$ ->
-  media.initChunk $(chunk) for chunk in $(".chunk")
+$ -> media.initChunk $(chunk) for chunk in $(".chunk")
 
 media =
   initChunk: (chunk) ->
