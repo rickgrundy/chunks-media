@@ -14,14 +14,14 @@
   -else
     =f.file_field :image
   
--if chunk.image.exists?  
+-if chunk.image.exists?
   .field
     =f.label :file_type
     .fixed=chunk.image_content_type
 
   .field
-    =f.label :file_size
-    .fixed=number_to_human_size(chunk.image_file_size)
+    =f.label :original
+    .fixed=link_to "Download (#{number_to_human_size(chunk.image_file_size)})", chunk.image.url, target: "_blank"
     
 .help
   S3 KEY:
